@@ -1,0 +1,47 @@
+﻿.navbar 
+{
+    background-color: rgb(69, 70, 85);
+    flex-wrap: nowrap;
+    border-radius: 10px;
+}
+
+.navbar div 
+{
+    list-style-type: none;
+    margin: 0px;
+    width: 100%;
+    border-style: none;
+}
+
+.nav-item
+{
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 0px 2px;
+    font-size: 18px;
+}
+
+.nav-item.currentpage 
+{
+    background-color: rgb(168, 168, 170);
+    color: rgb(80, 80, 180);
+    font-style: italic;
+}
+
+.nav-item a:hover 
+{
+    color: black;
+    background-color: blanchedalmond;
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.nav-link 
+{
+    display: inline-flex;
+    width: auto;
+}

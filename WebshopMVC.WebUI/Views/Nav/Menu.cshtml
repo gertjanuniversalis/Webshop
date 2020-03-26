@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebshopMVC.WebUI.Infrastructure.Concrete.LinkItem>
+
+@{
+    bool horizontal = ((bool)(ViewContext.RouteData.Values["horizontalLayout"] ?? false));
+    string wrapperClasses = horizontal ? "navbar nav btn-group btn-group-sm btn-group-justified" : null;
+}
+
+<div class="@wrapperClasses">
+    @foreach(var link in Model)
+    {
+        @Html.RouteLink(
+        (link.PageName),
+        new
+        {
+            controller = link.Controller, action = link.Action, category = ""
+        },
+        new
+        {
+            @class = (horizontal ? "nav-item li btn btn-block btn-default btn-sm" : "btn btn-block btn-default btn-sm") + 
+                ((link.PageName == ViewBag.ActivePage) ? " currentpage" : "")
+        })
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿@using WebshopMVC.Domain.Entities
+
+@model IEnumerable<WebshopMVC.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<div class="webshop">
+    @Html.Action("Uploadbutton", "Nav", new { })
+    <div class="shelves container-fluid">
+        <div class="row justify-content-center">
+            @foreach (Product product in Model)
+            {
+                <div class="card col-sm-3 itemcard">
+                    @Html.Partial("_ProductImage", product)
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Name</h4>
+                        <p>@product.Summary</p>
+                        <p>@product.Description</p>
+                        <p>Price = $@product.Price</p>
+                        <a href="/Store/@product.ID">More info</a>
+                    </div>
+                    <div class="card-footer">
+                        @if (ViewBag.LoggedIn)
+                        {
+                            @Html.Partial("~/Views/Store/_AddToCart.cshtml", @product)
+                        }
+                        else
+                        {
+                            <p>Please <a href="/Login">Login</a> or <a href="/Signup">Register</a> in order to use the store</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

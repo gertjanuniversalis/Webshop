@@ -1,0 +1,22 @@
+﻿@model WebshopMVC.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "EditItem";
+}
+
+<div class="card itemcard">
+    <div class="card-header">
+        <h3>Edit @Model.Name</h3>
+    </div>
+    <div class="card-body">
+        <a href="/Store/@Model.ID" class="btn btn-primary">Back</a>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            @Html.EditorForModel()
+            <br />
+            <input type="submit" value="Apply changes" class="btn btn-primary" />
+        }
+    </div>
+</div>

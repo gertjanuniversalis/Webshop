@@ -1,0 +1,52 @@
+﻿@using WebshopMVC.Domain.Entities;
+
+@model WebshopMVC.Domain.Entities.Cart
+
+@{
+    ViewBag.Title = "Cart";
+}
+<div class="shoppingcart">
+@if(Model?.Items.Count() > 0)
+{
+        using (Html.BeginForm("EmptyCart", "Store"))
+        {
+            <input type="submit" value="Empty Cart" class="btn btn-secondary" />
+        }
+        <div class="cartitems container-fluid">
+            <p>Tour cart contains @Model.Items.Count() unique items,<br />
+            for a total value of: $@Model.TotalValue</p>
+            <div class="row justify-content-center">
+                @foreach (CartItem item in @Model.Items)
+                {
+                    <div class="card itemcard">
+                        <div class="card-body">
+                            <div class="cartitemimg">
+                                @Html.Partial("_ProductImage", item.Product)
+                            </div>
+                            <div class="cartiteminfo">
+                                <p>@item.Product.Name</p>
+                                <p>@item.Product.Summary</p>
+                                <p>@item.Product.Price</p>
+                                <p>Amount In cart: @item.Quantity</p>
+                                <p>Total price: @item.TotalPrice</p>
+                                @Html.Partial("_AddToCart", item.Product)
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @using (Html.BeginForm("FinalisePurchase", "Store"))
+            {
+                <input type="submit" value="Buy All" class="btn btn-primary" />
+            }
+        </div>
+}
+else
+{
+    <div class="cartitems">
+        <p>Your cart is empty!</p>
+        <p>This would be a great moment to <a href="Store">Buy something</a>.</p>
+    </div>
+}
+</div>
+

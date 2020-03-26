@@ -1,0 +1,13 @@
+﻿@model WebshopMVC.Domain.Entities.Product
+
+    <a href="/Store/@Model.ID">
+        @if (Model.Image?.Length > 0)
+        {
+            <img class="card-img-top overview" src="~/Content/@Model.Image">
+        }
+        else
+        {
+            <p>No Image Found</p>
+        }
+    </a>
+    @Html.Action("RatingImage", "Rating", new { prodID = Model.ID })

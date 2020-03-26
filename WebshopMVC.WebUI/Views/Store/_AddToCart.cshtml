@@ -1,0 +1,20 @@
+﻿@model WebshopMVC.Domain.Entities.Product
+
+@{ 
+    string fieldName = "InputVal" + Model.ID;
+}
+
+@using (Html.BeginForm("AddToCart", "Store"))
+{
+    //Add the amount to the submit button
+    <div ng-controller="ItemController">
+        @Html.HiddenFor(x => x.ID)
+
+        <div ng-init="InitField('@fieldName')">
+            <input type="number" ng-model="@fieldName" min="0" max="1000" value="1" name="Amount" /><br />
+
+            <input type="submit" ng-disabled="SubmitDisabled('@fieldName')"
+                   class="{{SubmitClass('@fieldName')}}" value="Add {{@fieldName}} to cart" />
+        </div>
+    </div>
+}

@@ -1,0 +1,88 @@
+﻿.itemcard 
+{
+    object-fit: contain;
+    background-color: #393b40;
+    color: rgb(224,82,82);
+    margin: 2px;
+    margin-top: 5px;
+    min-width: 300px;
+    width: 80%;
+}
+
+.card-img-top
+{
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.cartitemimg
+.card-img-top.overview 
+{
+    height: 200px;
+    width: 200px;
+}
+
+.shoppingcart .card-body,
+.topfiveitems .card-body 
+{
+    display: inline-flex;
+}
+
+.btn.disabled {
+    text-decoration: line-through;
+}
+
+.cartitemimg 
+{
+    margin-right: 1em;
+}
+
+.card-body .btn
+{
+    width: 40%;
+    min-width: 51px;
+    font-size: small;
+}
+
+.uploadbutton 
+{
+    margin: 5px;
+    margin-left: 15px;
+}
+
+a.edit
+{
+    width: 8em;
+    height: 2em;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(107, 110, 148);
+    float: right;
+    margin-right: 20%;
+    border-color: white;
+    border-style: ridge;
+    border-width: 2px;
+}
+
+.cartitems .row 
+{
+    display: grid;
+}
+
+.productEdit
+{
+    margin-left: 10%;
+}
+
+.ratinglist
+{
+    display: inline-block;
+}
+
+.ratingstar
+{
+    height: 5%;
+    min-height: 20px;
+    width: 5%;
+    min-width: 20px;
+}

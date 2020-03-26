@@ -1,0 +1,63 @@
+﻿.contactme 
+{
+    max-width: 700px;
+    width: 80%;
+    margin: 20px;
+    background-color: gray;
+}
+
+.upload 
+{
+    margin-top: 10px;
+}
+
+.forminput 
+{
+    width: 80%;
+    display: inline-flex;
+    margin-bottom: 1em;
+    background-color: inherit;
+}
+
+.forminput label 
+{
+    width: 200px;
+}
+
+.forminput .form-control
+{
+    width: 50%;
+}
+
+.forminput p 
+{
+    margin-left: 1rem;
+}
+
+.forminput .redbox 
+{
+    border-style: solid;
+    border-width: thin;
+    border-color: red;
+}
+
+.forminput .submitbutton
+{
+    background-color: blanchedalmond;
+    color: red;
+}
+
+.forminput .error
+{
+    color: red;
+    vertical-align: top;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.forminput textarea,
+.forminput input 
+{
+    color: crimson;
+    background-color: aquamarine;
+}

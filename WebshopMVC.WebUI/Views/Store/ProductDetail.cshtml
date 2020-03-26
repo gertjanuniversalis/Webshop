@@ -1,0 +1,37 @@
+﻿@model WebshopMVC.Domain.Entities.Product
+
+@{
+    bool showDesc = ViewBag.showDescription ?? true;
+    bool horizontal = ViewBag.Horizontal ?? false;
+    bool fullscreen = ViewBag.Fullscreen ?? false;
+    string cardClass = horizontal || fullscreen ? "col itemcard" : "col-sm-3 itemcard";
+    string fieldName = "InputVal" + Model.ID;
+}
+
+<div class="card @cardClass">
+    <div class="card-body">
+        @Html.Action("EditButton", "Nav", new { itemID = Model.ID })
+        <div class="cartitemimg">
+            @Html.Partial("_ProductImage")
+        </div>
+        <div class="cartiteminfo">
+            <p>@Model.Name</p>
+            <p>@Model.Summary</p>
+            @if (showDesc)
+            {<p>@Model.Description</p>}
+            <p>Price = $@Model.Price</p>
+        </div>
+    </div>
+
+
+    <div class="card-footer">
+        @if (ViewBag.LoggedIn)
+        {
+            @Html.Partial("~/Views/Store/_AddToCart.cshtml", Model)
+        }
+        else
+        {
+            <p>Please <a href="/Login">Login</a> or <a href="/Signup">Register</a> in order to use the store</p>
+        }
+    </div>
+</div>

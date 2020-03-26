@@ -1,0 +1,23 @@
+﻿@model WebshopMVC.Domain.Entities.User
+
+@{
+    ViewBag.Title = "UserPanel";
+    string comment = ViewBag.Comment ?? "";
+}
+
+<div class="card itemcard">
+    <div class="card-header">
+        <h3>Edit user @Model.Name</h3>
+    </div>
+    <p>@comment</p>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+
+            @Html.EditorForModel()
+            <br />
+            <input type="submit"value="Apply Changes" class="btn btn-primary" />
+        }
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Custom/MainStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/Custom/NavStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/Custom/FormStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/Custom/ShopStyle.css" rel="stylesheet" type="text/css"/>
+
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body class="content" ng-app="StoreMVC" >
+    <div class="d-none d-md-block">
+        @Html.Action("Menu", "Nav", new { horizontalLayout = true })
+    </div>
+    <div>
+        <div class="d-sm-block d-md-none">
+            @Html.Action("Menu", "Nav")
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script> var ngApp = angular.module('StoreMVC', []);</script>
+    <script src="~/Scripts/Custom/StoreScripts.js"></script>
+</body>
+</html>

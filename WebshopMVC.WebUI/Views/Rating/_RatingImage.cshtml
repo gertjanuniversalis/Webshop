@@ -1,0 +1,50 @@
+﻿@{ 
+    double rating = ViewBag.Rating;
+    string imgfolder = "/Content/Images/Rating";
+    string fullstar = imgfolder + "/fullstar.png";
+    string halfstar = imgfolder + "/halfstar.png";
+    string emptystar = imgfolder + "/emptystar.png";
+
+    string thisstar = "";
+
+    string returnurl = Request.Url.AbsoluteUri;
+}
+
+@if(rating > 0)
+{
+    <p>rating = @rating</p>
+
+    <div class="ratinglist" ng-controller="ItemController">
+
+        @for (int i = 1; i < 6; i++)
+        {
+            if (rating >= i)
+            {
+                thisstar = fullstar;
+            }
+            else if (rating - i + 1 >= 0.5)
+            {
+                thisstar = halfstar;
+            }
+            else
+            {
+                thisstar = emptystar;
+            }
+
+            <a href='@Url.Action("EditRating", "Rating", new { prodID = ViewBag.ProdID, rating = i, returnUrl = returnurl})'
+               data-toggle="tooltip" title="item rating= @rating">
+                <img src=@thisstar class="ratingstar">                
+            </a>
+        }
+    </div>
+}
+else
+{
+    <p>produt not rated</p>
+}
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
